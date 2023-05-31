@@ -1,0 +1,24 @@
+defaults: 
+  - experiment: baseline
+  - _self_
+
+fold: 0
+n_folds: 10 # number of folds to use for cross-validation
+remove_low_involvement_cores_for_evaluation: true
+augmentations_mode: ultrasound_augs
+normalization: instance
+
+test_ood: true
+use_calibration: true 
+
+wandb:
+  name: ${exp_name}
+  project: IJCARS_2023
+  group: null 
+  id: ${oc.env:SLURM_JOB_ID}
+
+hydra: 
+  run: 
+    dir: outputs/${exp_name}/${now:%Y-%m-%d_%H-%M-%S}
+  job: 
+    chdir: true

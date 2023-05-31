@@ -1,0 +1,32 @@
+
+debug: false
+device: cuda
+exp_dir: .
+exp_name: ensemble_fold=${fold}
+fold: 0
+n_folds: 10 
+
+lr: 0.0001
+batch_size: 64
+augmentations_mode: tensor_augs
+num_epochs: 15
+weight_decay: 1.0e-05
+optimizer: adam
+scheduler: cosine
+model_name: resnet10
+num_members: null # number of models in the ensemble (if null, will be set to the number of folds)
+give_different_benigns: true # if true, each member will get a different set of benigns in training
+
+num_workers: 8
+num_seeds: 10
+
+wandb:
+  name: ${exp_name}
+  project: IJCARS_2023
+  group: ensemble
+
+hydra: 
+  run: 
+    dir: outputs/${exp_name}/${now:%Y-%m-%d_%H-%M-%S}
+  job: 
+    chdir: true

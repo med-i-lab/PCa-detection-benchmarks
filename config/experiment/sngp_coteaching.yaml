@@ -1,0 +1,23 @@
+# @package _global_
+
+exp_name: sngp_coteaching
+_target_: projects.IJCARS_2023.coteaching.SNGPCoTeaching
+
+augmentations_mode: none
+batch_size: 128
+debug: false
+device: cuda
+exp_dir: .
+ckpt_dir: /checkpoint/pwilson/${oc.env:SLURM_JOB_ID}
+checkpoint_freq: 1
+
+feature_scale: 2
+ridge_penalty: 1
+
+lr: 0.001
+num_epochs: 15
+num_workers: 8
+optimizer: adam
+scheduler: cosine
+seed: 2
+weight_decay: 1.0e-04

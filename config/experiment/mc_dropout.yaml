@@ -1,0 +1,27 @@
+# @package _global_
+
+exp_name: mc_dropout
+_target_: projects.IJCARS_2023.mc_dropout.MCDropout
+
+augmentations_mode: ultrasound_augs
+batch_size: 64
+debug: false
+device: cuda
+exp_dir: .
+ckpt_dir: /checkpoint/pwilson/${oc.env:SLURM_JOB_ID}
+checkpoint_freq: 1
+checkpoint_lookup_file: /h/pwilson/projects/TRUSnet/projects/IJCARS_2023/checkpoints.json
+
+benign_undersampling_kfold: null
+
+lr: 0.0001
+n_passes: 10
+model_name: resnet10
+model_kwargs: 
+num_epochs: 15
+num_workers: 8
+optimizer: adam
+scheduler: cosine
+seed: 0
+weight_decay: 1.0e-05
+

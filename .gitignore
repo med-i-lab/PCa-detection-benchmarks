@@ -1,0 +1,6 @@
+__pycache__/
+outputs_final/
+*.pyc
+.ipynb_checkpoints
+.DS_store
+scratch.ipynb

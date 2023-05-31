@@ -1,0 +1,28 @@
+# @package _global_
+
+_target_: projects.IJCARS_2023.sngp.SNGP
+
+exp_name: sngp
+
+augmentations_mode: none
+batch_size: 128
+debug: false
+device: cuda
+exp_dir: .
+ckpt_dir: /checkpoint/pwilson/${oc.env:SLURM_JOB_ID}
+checkpoint_freq: 1
+
+feature_scale: 2
+ridge_penalty: 1
+
+fold: 0
+
+benign_undersampling_kfold: null
+
+lr: 0.001
+num_epochs: 15
+num_workers: 8
+optimizer: adam
+scheduler: cosine
+seed: 2
+weight_decay: 1.0e-04
